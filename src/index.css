@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles for the grief companion app */
+@layer base {
+  body {
+    @apply font-body text-journal-dark antialiased;
+    background-color: #F5F0EB;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  /* Smooth scrolling and gentle animations */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  * {
+    transition: all 0.3s ease-out;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  .btn-primary {
+    @apply bg-rose-muted hover:bg-rose-dusty text-white font-body font-medium px-8 py-3 rounded-2xl shadow-journal transition-all duration-300 hover:shadow-journal-hover;
+  }
+  
+  .btn-secondary {
+    @apply bg-linen-cream hover:bg-rose-pale text-journal-dark font-body font-medium px-6 py-3 rounded-2xl border border-journal-light transition-all duration-300 hover:shadow-journal;
+  }
+  
+  .btn-understated {
+    @apply bg-linen-cream hover:bg-rose-pale text-journal-medium font-body px-6 py-2.5 rounded-full border border-journal-light transition-all duration-300 hover:border-rose-soft;
+  }
+  
+  .input-field {
+    @apply w-full px-5 py-4 rounded-2xl border border-journal-light bg-linen-cream text-journal-dark placeholder:text-journal-light focus:outline-none focus:border-rose-soft focus:bg-white transition-all duration-300;
+  }
+  
+  .textarea-field {
+    @apply w-full px-5 py-4 rounded-2xl border border-journal-light bg-linen-cream text-journal-dark placeholder:text-journal-light focus:outline-none focus:border-rose-soft focus:bg-white transition-all duration-300 resize-none leading-relaxed;
+  }
+  
+  .card {
+    @apply bg-linen-cream rounded-3xl shadow-journal p-8 transition-all duration-300 hover:shadow-journal-hover border-0;
+  }
+  
+  .journal-entry {
+    @apply bg-linen-cream rounded-2xl shadow-journal p-6 transition-all duration-300 hover:shadow-journal-hover border-l-4 border-rose-soft;
+  }
+  
+  .reflection-card {
+    @apply bg-linen-cream rounded-2xl shadow-journal p-6 transition-all duration-300 border-l-4 border-rose-dusty;
+  }
+  
+  .moment-tag {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-body font-medium transition-all duration-300 cursor-pointer;
+  }
+  
+  .moment-tag-selected {
+    @apply bg-rose-pale text-journal-dark border border-rose-soft;
+  }
+  
+  .moment-tag-unselected {
+    @apply bg-white text-journal-light hover:bg-rose-pale hover:text-journal-medium border border-journal-light;
+  }
+  
+  /* Custom datetime input styling */
+  input[type="datetime-local"] {
+    @apply font-body text-journal-dark;
+  }
+  
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    @apply cursor-pointer opacity-60 hover:opacity-100 transition-opacity duration-300;
+  }
+  
+  /* Delete confirmation dialog animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .confirmation-dialog {
+    animation: fadeIn 0.2s ease-out;
+  }
+}
