@@ -77,7 +77,7 @@ flowchart TD
 
 ## Screenshots
 ![Login](docs/ember-login.png)
-![Landing page](docs/ember-landing.png)
+![Landing](docs/ember-landing.png)
 ![Moments](docs/ember-moments.png)
 ![Reflections](docs/ember-reflections.png)
 
@@ -146,4 +146,4 @@ Beyond shared spaces, the future of Ember includes:
 
 ## Built By
 
-**Margarethe de Cafmeyer** — solo entry, built with Cursor and Claude. This is my first app, built from personal need. Ember exists because grief deserves a gentle, private space — and because the people we lose deserve to be remembered in all the small, beautiful ways they show up.
+**Margarethe de Cafmeyer** - solo entry, built with Cursor and Claude. This is my first app, built from personal need. Ember exists because grief deserves a gentle, private space - and because the people we lose deserve to be remembered in all the small, searing, beautiful ways they show up.
