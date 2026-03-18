@@ -77,7 +77,7 @@ flowchart TD
 
 ## Screenshots
 ![Login](docs/ember-login.png)
-![Landing](docs/ember-landing.png)
+![Landing](docs/ember-landing-pg.png)
 ![Moments](docs/ember-moments.png)
 ![Reflections](docs/ember-reflections.png)
 
