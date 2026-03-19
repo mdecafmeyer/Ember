@@ -147,3 +147,5 @@ Beyond shared spaces, the future of Ember includes:
 ## Built By
 
 **Margarethe de Cafmeyer** - solo entry, built with Cursor and Claude. This is my first app, built from personal need. Ember exists because grief deserves a gentle, private space - and because the people we lose deserve to be remembered in all the small, searing, beautiful ways they show up.
+
+The name **Ember** felt right from the first moment. An ember remains after the fire - not the blaze itself, but the quiet glow that lingers. You don't want to let it go out. You tend to it gently. That's what mourning someone feels like. Not just the dramatic firestorm of grief, but the small moments you carry forward - some warm enough to cup in your hands, others still burn when you touch them. Ember holds them all.

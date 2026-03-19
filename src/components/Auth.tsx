@@ -49,7 +49,7 @@ export default function Auth({ onAuth }: AuthProps) {
         {/* Logo/Header */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-heading italic text-journal-dark mb-3" style={{ fontWeight: 400 }}>Ember</h1>
-          <p className="text-journal-medium font-body text-lg">A gentle space for your memories</p>
+          <p className="text-journal-medium font-body text-lg">An ember remains after the fire. A gentle space for the moments you carry forward.</p>
         </div>
 
         {/* Auth Form */}
