@@ -98,7 +98,7 @@ export default function ReflectionCard({ moments, triggerGeneration, onGeneratio
       // Get recent moments (last 10 or all if fewer)
       const recentMoments = moments.slice(0, 10)
       console.log(`Generating reflection based on ${recentMoments.length} recent moments`)
-      const reflectionText = await generateReflection(recentMoments)
+      const reflectionText = await generateReflection(recentMoments, pastReflections)
       setReflection(reflectionText)
     } catch (err) {
       console.error('Failed to generate reflection:', err)

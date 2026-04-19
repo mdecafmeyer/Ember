@@ -5,6 +5,11 @@ interface Moment {
   created_at: string
 }
 
+interface PreviousReflection {
+  content: string
+  created_at: string
+}
+
 interface ClaudeResponse {
   content: Array<{
     type: string
@@ -12,18 +17,23 @@ interface ClaudeResponse {
   }>
 }
 
-export async function generateReflection(moments: Moment[]): Promise<string> {
+export async function generateReflection(moments: Moment[], previousReflections: PreviousReflection[] = []): Promise<string> {
 
-  // Format moments for the AI prompt
   const momentsText = moments.map((moment, index) => {
     const locationText = moment.location_tag ? ` at ${moment.location_tag}` : ''
     const date = new Date(moment.created_at).toLocaleDateString()
     return `${index + 1}. ${moment.moment_type}: "${moment.text}"${locationText} (${date})`
   }).join('\n')
 
+  const previousReflectionsText = previousReflections.length > 0
+    ? `\n\nFor context, here are your previous reflections on these moments:\n${previousReflections
+        .map(r => `- ${new Date(r.created_at).toLocaleDateString()}: "${r.content}"`)
+        .join('\n')}\n\nPlease offer a fresh perspective — notice something new, go deeper on a detail you mentioned before, or draw a connection you haven't yet made.`
+    : ''
+
   const userPrompt = `Here are some recent moments I've captured:
 
-${momentsText}
+${momentsText}${previousReflectionsText}
 
 Please reflect on these moments - what patterns, themes, or connections do you notice?`
 
@@ -40,7 +50,7 @@ Please reflect on these moments - what patterns, themes, or connections do you n
   }
 
   try {
-    console.log('Sending request to local AI proxy with', moments.length, 'moments')
+    console.log('Sending request to local AI proxy with', moments.length, 'moments and', previousReflections.length, 'previous reflections')
     
     const response = await fetch('/api/reflect', {
       method: 'POST',
@@ -50,11 +60,8 @@ Please reflect on these moments - what patterns, themes, or connections do you n
       body: JSON.stringify(requestBody)
     })
 
-    console.log('AI proxy response status:', response.status)
-
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({ error: 'Unknown error' }))
-      console.error('AI proxy error response:', errorData)
       throw new Error(`AI proxy error: ${response.status} ${response.statusText} - ${errorData.error || errorData.message || 'Unknown error'}`)
     }
 
